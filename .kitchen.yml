@@ -1,20 +1,21 @@
 ---
 driver:
   name: vagrant
+  product_version: 14.1.1
 
 provisioner:
   name: chef_zero
-  # You may wish to disable always updating cookbooks in CI or other testing environments.
-  # For example:
-  #   always_update_cookbooks: <%= !ENV['CI'] %>
-  always_update_cookbooks: true
-
-verifier:
-  name: inspec
+  nodes_path: 'test/fixtures/nodes'
+  data_bags_path: 'test/fixtures/data_bags'
+  environments_path: 'test/fixtures/environments'
+  client_rb:
+    environment: _default
 
 platforms:
   - name: ubuntu-16.04
-  - name: centos-7
+
+verifier:
+  name: inspec
 
 suites:
   - name: default
@@ -22,5 +23,4 @@ suites:
       - recipe[kibana_wrapper_cookbook::default]
     verifier:
       inspec_tests:
-        - test/integration/default
-    attributes:
+        - test/unit/spec
