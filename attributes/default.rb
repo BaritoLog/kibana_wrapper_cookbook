@@ -1,4 +1,4 @@
-override['kibana']['config']['elasticsearch.url'] = 'http://el.baritolog.com:9200'
+default['kibana']['config']['elasticsearch.url'] = 'http://el.baritolog.com:9200'
 override['kibana']['config']['base_dir'] = '/opt/kibana'
 override['kibana']['config']['logging.dest'] = '/var/log/kibana.log'
 override['kibana']['version'] = '5.6.9'
