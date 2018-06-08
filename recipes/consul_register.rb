@@ -19,6 +19,6 @@ config = {
 
 consul_register_service "kibana" do
   config config
-  config_dir  node[cookbook_name]['consul']['config_dir']
-  consul_bin  node[cookbook_name]['consul']['bin']
+  config_dir  node['kibana']['consul']['config_dir']
+  consul_bin  node['kibana']['consul']['bin']
 end

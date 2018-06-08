@@ -13,4 +13,3 @@ source_url 'https://github.com/BaritoLog/kibana_wrapper_cookbook'
 
 depends 'systemd'
 depends 'kibana5'
-depends 'foundation'

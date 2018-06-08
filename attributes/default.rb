@@ -10,5 +10,5 @@ default['nginx']['port'] = '80'
 default['kibana']['config']['port'] = '5601'
 
 # Attributes for registering this service to consul
-default[cookbook_name]['consul']['config_dir'] = '/opt/consul/etc'
-default[cookbook_name]['consul']['bin'] = '/opt/bin/consul'
+default['kibana']['consul']['config_dir'] = '/opt/consul/etc'
+default['kibana']['consul']['bin'] = '/opt/bin/consul'
