@@ -6,7 +6,7 @@ default['nginx']['default_site_enabled'] = false
 default['nginx']['user'] = node['kibana']['service_user']
 default['nginx']['kibana_path'] = '/etc/nginx/conf.d/kibana.conf'
 default['nginx']['ip_address'] = '0.0.0.0'
-default['nginx']['port'] = '80'
+default['nginx']['port'] = 80
 default['kibana']['config']['port'] = '5601'
 
 # Attributes for registering this service to consul
