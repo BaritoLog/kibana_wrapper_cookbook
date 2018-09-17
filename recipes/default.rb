@@ -9,6 +9,7 @@ kibana5_configure 'kibana' do
   svc_name 'kibana'
   configuration ({
     'elasticsearch.url' => node['kibana']['config']['elasticsearch.url'],
+    'server.basePath' => node['kibana']['config']['server.basePath'],
     'logging.dest' => node['kibana']['config']['logging.dest']
   })
 end
@@ -21,7 +22,8 @@ template node['nginx']['kibana_path'] do
     listen_address: node['nginx']['ip_address'],
     listen_port: node['nginx']['port'],
     server_name: 'kibana',
-    kibana_port: node['kibana']['config']['port']
+    kibana_port: node['kibana']['config']['port'],
+    base_path: node['kibana']['config']['server.basePath']
   )
 end
 
