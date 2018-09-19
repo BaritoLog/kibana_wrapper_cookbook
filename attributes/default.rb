@@ -10,6 +10,7 @@ default['kibana']['version'] = '6.3.0'
 default['kibana']['config']['elasticsearch.url'] = 'http://el.baritolog.com:9200'
 default['kibana']['config']['server.basePath'] = '""'
 default['kibana']['config']['port'] = '5601'
+default['kibana']['config']['xpack.security.enabled'] = false
 override['kibana']['config']['base_dir'] = '/opt/kibana'
 override['kibana']['config']['logging.dest'] = '/var/log/kibana.log'
 

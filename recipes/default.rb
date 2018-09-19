@@ -10,7 +10,8 @@ kibana5_configure 'kibana' do
   configuration ({
     'elasticsearch.url' => node['kibana']['config']['elasticsearch.url'],
     'server.basePath' => node['kibana']['config']['server.basePath'],
-    'logging.dest' => node['kibana']['config']['logging.dest']
+    'logging.dest' => node['kibana']['config']['logging.dest'],
+    'xpack.security.enabled' => node['kibana']['config']['xpack.security.enabled']
   })
 end
 
