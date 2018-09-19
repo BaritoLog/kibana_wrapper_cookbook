@@ -5,11 +5,13 @@ driver:
 
 provisioner:
   name: chef_zero
-  nodes_path: 'test/fixtures/nodes'
-  data_bags_path: 'test/fixtures/data_bags'
-  environments_path: 'test/fixtures/environments'
-  client_rb:
-    environment: _default
+  # You may wish to disable always updating cookbooks in CI or other testing environments.
+  # For example:
+  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
 
 platforms:
   - name: opscode-ubuntu-18.04-chef-14
@@ -19,13 +21,10 @@ platforms:
       product_name: chef
       product_version: latest
 
-verifier:
-  name: inspec
-
 suites:
   - name: default
     run_list:
       - recipe[kibana_wrapper_cookbook::default]
     verifier:
       inspec_tests:
-        - test/unit/spec
+        - test/integration/default
