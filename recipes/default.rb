@@ -15,6 +15,14 @@ kibana5_configure 'kibana' do
   })
 end
 
+template '/etc/logrotate.d/kibana' do
+  source 'logrotate/kibana.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  variables log_file: node['kibana']['config']['logging.dest']
+end
+
 apt_update 'update_to_install_nginx'
 package 'nginx'
 template node['nginx']['kibana_path'] do
