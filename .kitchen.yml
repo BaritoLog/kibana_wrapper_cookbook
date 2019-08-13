@@ -9,6 +9,9 @@ provisioner:
   # For example:
   #   always_update_cookbooks: <%= !ENV['CI'] %>
   always_update_cookbooks: true
+  client_rb:
+    environment: _default
+    chef_license: accept
 
 verifier:
   name: inspec
@@ -25,6 +28,11 @@ suites:
   - name: default
     run_list:
       - recipe[kibana_wrapper_cookbook::default]
+    driver_config:
+      customize:
+        memory: 1024
+      network:
+        - ['private_network', {ip: '192.168.33.10'}]
     verifier:
       inspec_tests:
         - test/integration/default
