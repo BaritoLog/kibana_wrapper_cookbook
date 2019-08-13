@@ -34,6 +34,7 @@ template node['nginx']['kibana_path'] do
     kibana_port: node['kibana']['config']['port'],
     base_path: node['kibana']['config']['server.basePath']
   )
+  notifies :reload, 'service[nginx]'
 end
 
 %w[sites-enabled sites-available conf.d].each do |conf_dir|
