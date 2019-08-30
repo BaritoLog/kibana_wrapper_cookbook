@@ -24,3 +24,9 @@ end
 describe file('/etc/logrotate.d/kibana') do
 its('mode') { should cmp '0644' }
 end
+
+describe systemd_service('consul') do
+  it { should be_installed }
+  it { should be_enabled }
+  it { should be_running }
+end
