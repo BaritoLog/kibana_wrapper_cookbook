@@ -28,7 +28,7 @@ checks = [
   {
     "id": "#{node['hostname']}-hc-http",
     "name": "kibana",
-    "http": "localhost:#{node['kibana']['config']['port']}",
+    "http": "http://localhost:#{node['kibana']['config']['port']}",
     "tls_skip_verify": false,
     "method": "GET",
     "header": {},
