@@ -21,14 +21,14 @@ checks = [
   {
     "id": "#{node['hostname']}-kibana-hc-tcp",
     "name": "kibana",
-    "tcp": "#{node['ipaddress']}:#{node['kibana']['config']['port']}",
+    "tcp": "localhost:#{node['kibana']['config']['port']}",
     "interval": "10s",
     "timeout": "1s"
   },
   {
     "id": "#{node['hostname']}-hc-http",
     "name": "kibana",
-    "http": "http://#{node['ipaddress']}:#{node['kibana']['config']['clientPort']}",
+    "http": "http://#{node['ipaddress']}:#{node['kibana']['config']['port']}",
     "tls_skip_verify": false,
     "method": "GET",
     "header": {},
