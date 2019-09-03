@@ -28,6 +28,8 @@ suites:
   - name: default
     run_list:
       - recipe[kibana_wrapper_cookbook::default]
+      - recipe[consul::default]
+      - recipe[kibana_wrapper_cookbook::consul_register]
     driver_config:
       customize:
         memory: 1024
@@ -36,3 +38,7 @@ suites:
     verifier:
       inspec_tests:
         - test/integration/default
+    attributes:
+      consul:
+        run_as_server: false
+        hosts: ["127.0.0.1"]
