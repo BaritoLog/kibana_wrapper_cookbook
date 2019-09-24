@@ -34,7 +34,7 @@ suites:
       customize:
         memory: 1024
       network:
-        - ['private_network', {ip: '192.168.33.10'}]
+        - ["private_network", { ip: "192.168.33.10" }]
     verifier:
       inspec_tests:
         - test/integration/default
@@ -42,3 +42,5 @@ suites:
       consul:
         run_as_server: false
         hosts: ["127.0.0.1"]
+        cli_opts:
+          advertise: "192.168.33.10"
