@@ -34,3 +34,7 @@ end
 describe package('libnginx-mod-http-lua') do
   it { should be_installed }
 end
+
+describe package ('lua-cjson') do
+  it { should be_installed }
+end
