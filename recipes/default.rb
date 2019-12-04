@@ -25,6 +25,9 @@ end
 
 apt_update 'update_to_install_nginx'
 package 'nginx'
+
+apt_package 'libnginx-mod-http-lua'
+
 template node['nginx']['kibana_path'] do
   source 'nginx.conf.erb'
   variables(
