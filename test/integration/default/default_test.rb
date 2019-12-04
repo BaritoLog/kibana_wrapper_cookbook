@@ -38,3 +38,7 @@ end
 describe package ('lua-cjson') do
   it { should be_installed }
 end
+
+describe file('/etc/nginx/conf.d/kibana.conf') do
+  its('content') { should include("http://localhost/api/v1/query?query=increase(barito_producer_tps_exceeded_total%7Bapp_group=%22test%22%7D[2m])%20%3E%200") }
+end
