@@ -37,8 +37,8 @@ template node['nginx']['kibana_path'] do
     server_name: 'kibana',
     kibana_port: node['kibana']['config']['port'],
     base_path: node['kibana']['config']['server.basePath'],
-    tps_banner_prometheus_query_url: node['kibana']['config']['prometheus_url'] + "/api/v1/query?query=" + 
-      URI::encode("increase(barito_producer_tps_exceeded_total{app_group=\"#{node['kibana']['config']['server.basePath'][1..-1]}\"}[2m]) > 0")
+    tps_banner_prometheus_query_url: node['kibana']['config']['prometheus_url'] + "/api/v1/query?query=" +
+      URI::encode("increase(barito_producer_tps_exceeded_total{app_group=\"#{node['kibana']['config']['server.basePath'][1..-1]}\"}[1m]) > 0")
   )
   notifies :reload, 'service[nginx]'
 end
