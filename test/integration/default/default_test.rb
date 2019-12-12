@@ -44,3 +44,7 @@ describe file('/etc/nginx/conf.d/kibana.conf') do
   its('content') { should include('proxy_connect_timeout 100ms;') }
   its('content') { should include('proxy_read_timeout 100ms;') }
 end
+
+describe command('nginx -t') do
+  its('exit_status') { should eq 0 }
+end
