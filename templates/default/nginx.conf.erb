@@ -23,7 +23,7 @@ server {
       local cjson = require "cjson"
 
       local response = ngx.location.capture("/tps-banner-prometheus-query")
-      if response then
+      if response.status == 200 then
         body = cjson.decode(response.body)
 
         if body.status == "success" then
