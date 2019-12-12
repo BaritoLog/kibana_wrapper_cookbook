@@ -40,7 +40,7 @@ suites:
         - test/integration/default
     attributes:
       consul:
-        run_as_server: false
+        run_as_server: true
         hosts: ["127.0.0.1"]
         cli_opts:
           advertise: "192.168.33.10"
