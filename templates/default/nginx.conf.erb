@@ -12,6 +12,7 @@ server {
 
     proxy_set_header Accept-Encoding "";
     proxy_pass <%= @tps_banner_prometheus_query_url %>;
+    proxy_connect_timeout 100ms;
   }
 
   location = /tps-banner {
