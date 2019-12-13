@@ -43,7 +43,7 @@ server {
                 style.sheet.insertRule(".app-wrapper { top: 42px !important }", 0);
 
                 let banner = document.createElement("div");
-                banner.innerHTML = "Warning: TPS exceeded on these apps: ]] .. app_names_message .. [[. Please ask app group owner to increase TPS.";
+                banner.innerHTML = "]] .. string.format("<%= @message_format %>", app_names_message) .. [[";
                 banner.style.backgroundColor = "red";
                 banner.style.color = "white";
                 banner.style.fontFamily = "Arial, Helvetica, sans-serif";
